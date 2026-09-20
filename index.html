@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>API Explorer</title>
+  <meta name="description" content="Search and explore the Public APIs directory." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topline"><span class="dot"></span> Developer API Explorer</div>
+      <h1>Find an API. Build something.</h1>
+      <p>Search the Public APIs directory by name, category, authentication, HTTPS, and CORS support.</p>
+      <div class="searchbar">
+        <span>⌕</span><input id="search" type="search" placeholder="Search APIs, e.g. weather, payments, email..." autocomplete="off" />
+        <button id="clear" class="ghost" hidden>Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <section class="toolbar">
+      <div class="stats"><strong id="count">Loading…</strong><span> APIs</span></div>
+      <div class="controls">
+        <select id="category"><option value="">All categories</option></select>
+        <select id="auth"><option value="">Any auth</option><option value="No">No auth</option><option value="Yes">Requires auth</option><option value="Unknown">Unknown auth</option></select>
+        <select id="https"><option value="">HTTPS: Any</option><option value="Yes">HTTPS only</option><option value="No">HTTP allowed</option></select>
+        <select id="sort"><option value="name">Sort: Name</option><option value="category">Sort: Category</option></select>
+      </div>
+    </section>
+
+    <div id="error" class="error" hidden></div>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden><div class="empty-icon">⌁</div><h2>No APIs found</h2><p>Try a broader search or remove a filter.</p></div>
+    <div id="loading" class="loading"><div class="spinner"></div> Reading the API directory…</div>
+  </main>
+
+  <footer class="wrap footer">Data sourced from this repository's <code>README.md</code>. Always review an API's documentation, limits, authentication, and terms before using it in production.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
